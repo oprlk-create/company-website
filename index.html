@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>北京中亿孚佑科技有限公司</title>
+
+<style>
+
+/* ===== 基础 ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+    background:
+    linear-gradient(
+    180deg,
+    #f4f7fb,
+    #eef3f9);
+
+    color:#222;
+
+    overflow-x:hidden;
+}
+
+/* ===== 导航栏 ===== */
+
+nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+    rgba(8,27,51,0.92);
+
+    backdrop-filter:blur(12px);
+
+    padding:20px 35px;
+
+    box-shadow:
+    0 4px 20px rgba(0,0,0,0.08);
+}
+
+.nav-inner{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+}
+
+.company-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    font-size:22px;
+}
+
+.logo{
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:28px;
+
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    opacity:0.9;
+
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+
+    opacity:1;
+
+    color:#72b7ff;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+
+    background:
+
+    radial-gradient(
+    circle at top left,
+    rgba(80,140,255,0.18),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle at bottom right,
+    rgba(0,180,255,0.12),
+    transparent 35%
+    ),
+
+    linear-gradient(
+    135deg,
+    #04111f 0%,
+    #071a2f 30%,
+    #0b2d5c 70%,
+    #123f7a 100%
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:170px 20px 240px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    background:
+    radial-gradient(
+    rgba(80,140,255,0.18),
+    transparent 70%
+    );
+
+    top:-200px;
+
+    right:-120px;
+
+    border-radius:50%;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:220px;
+
+    background:
+    linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(244,247,251,1)
+    );
+
+    z-index:1;
+}
+
+.hero h2{
+
+    font-size:64px;
+
+    margin-bottom:28px;
+
+    position:relative;
+
+    z-index:2;
+
+    text-shadow:
+    0 4px 18px rgba(0,0,0,0.35);
+}
+
+.hero p{
+
+    max-width:920px;
+
+    margin:auto;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    opacity:0.95;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-stats{
+
+    margin-top:75px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:90px;
+
+    flex-wrap:wrap;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-stats h3{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+}
+
+.hero-stats span{
+
+    opacity:0.9;
+}
+
+/* ===== 下滑提示 ===== */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    bottom:55px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    opacity:0.9;
+
+    animation:
+    floatArrow 2s infinite;
+}
+
+.scroll-arrow{
+
+    width:24px;
+
+    height:24px;
+
+    border-left:2px solid white;
+
+    border-bottom:2px solid white;
+
+    transform:rotate(-45deg);
+}
+
+@keyframes floatArrow{
+
+    0%{
+        transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateX(-50%)
+        translateY(10px);
+    }
+
+    100%{
+        transform:
+        translateX(-50%)
+        translateY(0);
+    }
+}
+
+/* ===== 通用 ===== */
+
+.container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:110px 25px;
+}
+
+.section-light{
+
+    background:white;
+
+    border-radius:42px;
+
+    box-shadow:
+    0 6px 25px rgba(0,0,0,0.04);
+}
+
+.section-gray{
+
+    background:#eef3f9;
+
+    border-radius:42px;
+
+    box-shadow:
+    0 6px 25px rgba(0,0,0,0.04);
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:65px;
+}
+
+.section-title span{
+
+    color:#7b96c5;
+
+    font-size:22px;
+}
+
+.section-title h2{
+
+    color:#0b2d5c;
+
+    font-size:52px;
+
+    margin-top:12px;
+}
+
+.section-line{
+
+    width:75px;
+
+    height:8px;
+
+    background:#4aa3ff;
+
+    border-radius:10px;
+
+    margin:
+    18px auto 0;
+}
+
+/* ===== 卡片 ===== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:32px;
+}
+
+.card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:26px;
+
+    box-shadow:
+    0 6px 22px rgba(0,0,0,0.06);
+
+    transition:0.35s;
+
+    border:
+    1px solid rgba(0,0,0,0.04);
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.12);
+}
+
+.card h3{
+
+    color:#0b2d5c;
+
+    margin-bottom:18px;
+
+    font-size:25px;
+}
+
+.card p{
+
+    line-height:1.9;
+
+    color:#555;
+}
+
+/* ===== 产品图 ===== */
+
+.product-image{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:16px;
+
+    margin-bottom:22px;
+
+    padding:12px;
+}
+
+/* ===== 公司简介顶部 ===== */
+
+.about-top{
+
+    background:
+    linear-gradient(
+    rgba(7,35,82,0.92),
+    rgba(7,35,82,0.92)
+    ),
+
+    url("https://images.unsplash.com/photo-1581093458791-9d15482442f6?q=80&w=1600&auto=format&fit=crop");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    padding:90px 90px 220px;
+
+    position:relative;
+
+    margin-top:100px;
+}
+
+.about-top-grid{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1.2fr 0.7fr 0.7fr;
+
+    gap:60px;
+}
+
+.about-title{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+}
+
+.blue-line{
+
+    width:55px;
+
+    height:6px;
+
+    background:#46a3ff;
+
+    border-radius:10px;
+
+    margin-bottom:40px;
+}
+
+.about-text{
+
+    font-size:20px;
+
+    line-height:2.1;
+
+    opacity:0.96;
+}
+
+.top-card{
+
+    border-left:
+    1px solid rgba(255,255,255,0.25);
+
+    padding-left:40px;
+}
+
+.top-icon{
+
+    font-size:58px;
+
+    margin-bottom:24px;
+}
+
+.top-card h3{
+
+    font-size:32px;
+
+    margin-bottom:22px;
+}
+
+.top-card p{
+
+    line-height:2;
+
+    font-size:18px;
+}
+
+/* ===== 白色悬浮简介 ===== */
+
+.about-panel{
+
+    max-width:1500px;
+
+    margin:
+    -120px auto 100px;
+
+    background:white;
+
+    border-radius:40px;
+
+    padding:75px 85px;
+
+    box-shadow:
+    0 12px 40px rgba(0,0,0,0.08);
+
+    position:relative;
+
+    z-index:10;
+}
+
+.business-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+
+    margin-top:30px;
+}
+
+.business-column{
+
+    background:#f8fbff;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    border:
+    1px solid #e3ebf5;
+
+    transition:0.35s;
+}
+
+.business-column:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.08);
+}
+
+.business-header{
+
+    background:
+    linear-gradient(
+    135deg,
+    #0b2d5c,
+    #14498f);
+
+    color:white;
+
+    padding:22px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    text-align:center;
+}
+
+.business-item{
+
+    padding:22px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    color:#333;
+
+    border-bottom:
+    1px solid #e8eef6;
+}
+
+.business-item:last-child{
+
+    border-bottom:none;
+}
+
+/* ===== 联系我们 ===== */
+
+.contact{
+
+    background:
+    linear-gradient(
+    135deg,
+    #081b33,
+    #14498f);
+
+    color:white;
+
+    border-radius:36px;
+
+    padding:75px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.12);
+}
+
+.contact h2{
+
+    font-size:44px;
+
+    margin-bottom:30px;
+}
+
+.contact p{
+
+    margin-bottom:14px;
+
+    font-size:18px;
+
+    opacity:0.95;
+}
+
+/* ===== Footer ===== */
+
+footer{
+
+    background:#081b33;
+
+    color:white;
+
+    text-align:center;
+
+    padding:45px;
+
+    margin-top:80px;
+}
+
+/* ===== 手机端 ===== */
+
+@media(max-width:1100px){
+
+    .hero{
+
+        padding:120px 20px 200px;
+    }
+
+    .hero h2{
+
+        font-size:42px;
+    }
+
+    .hero p{
+
+        font-size:18px;
+    }
+
+    .hero-stats{
+
+        gap:45px;
+    }
+
+    .about-top{
+
+        padding:60px 30px 180px;
+    }
+
+    .about-top-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .top-card{
+
+        border-left:none;
+
+        padding-left:0;
+    }
+
+    .about-panel{
+
+        margin-top:-80px;
+
+        padding:45px 30px;
+    }
+
+    .section-title h2{
+
+        font-size:38px;
+    }
+
+    .contact{
+
+        padding:45px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="nav-inner">
+
+        <h1 class="company-title">
+
+            <img
+            src="images/logo.webp"
+            alt="Logo"
+            class="logo">
+
+            北京中亿孚佑科技有限公司
+
+        </h1>
+
+        <div class="nav-links">
+
+            <a href="#">首页</a>
+            <a href="#">业务领域</a>
+            <a href="#">产品中心</a>
+            <a href="#">合作品牌</a>
+            <a href="#">公司简介</a>
+            <a href="#">联系我们</a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <h2>科学仪器与测试解决方案</h2>
+
+    <p>
+    专注实验室仪器、材料测试、
+    环境监测与工业检测系统，
+    为科研机构与工业企业提供高端技术服务。
+    </p>
+
+    <div class="hero-stats">
+
+        <div>
+            <h3>2012</h3>
+            <span>成立时间</span>
+        </div>
+
+        <div>
+            <h3>2000万</h3>
+            <span>注册资金</span>
+        </div>
+
+        <div>
+            <h3>500+</h3>
+            <span>服务项目</span>
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+
+        <span>向下浏览</span>
+
+        <div class="scroll-arrow"></div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
