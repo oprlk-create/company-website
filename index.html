@@ -761,6 +761,81 @@ nav{
     transform:translateY(-2px);
 }
 
+/* ===== 在线留言 ===== */
+
+.message-form{
+
+    max-width:850px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+}
+
+.message-form input,
+.message-form textarea{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    border:1px solid #d9e3f0;
+
+    font-size:17px;
+
+    background:#f8fbff;
+
+    transition:0.3s;
+
+    outline:none;
+}
+
+.message-form input:focus,
+.message-form textarea:focus{
+
+    border-color:#4aa3ff;
+
+    box-shadow:
+    0 0 0 4px rgba(74,163,255,0.12);
+}
+
+.message-form button{
+
+    background:
+    linear-gradient(
+    135deg,
+    #0b2d5c,
+    #14498f);
+
+    color:white;
+
+    border:none;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.message-form button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,0.12);
+}
+
 /* ===== Footer ===== */
 
 footer{
@@ -1564,6 +1639,58 @@ footer{
         </div>
 
     </div>
+
+</section>
+
+<!-- ===== 在线留言 ===== -->
+
+<section class="container section-light">
+
+    <div class="section-title">
+
+        <span>Online Message</span>
+
+        <h2>在线留言</h2>
+
+        <div class="section-line"></div>
+
+    </div>
+
+    <form
+    action="https://formspree.io/f/mqejwkav"
+    method="POST"
+    class="message-form">
+
+        <input
+        type="text"
+        name="name"
+        placeholder="您的姓名"
+        required>
+
+        <input
+        type="email"
+        name="email"
+        placeholder="您的邮箱"
+        required>
+
+        <input
+        type="text"
+        name="phone"
+        placeholder="联系电话">
+
+        <textarea
+        name="message"
+        rows="6"
+        placeholder="请输入您的留言内容..."
+        required></textarea>
+
+        <button type="submit">
+
+            提交留言
+
+        </button>
+
+    </form>
 
 </section>
 
